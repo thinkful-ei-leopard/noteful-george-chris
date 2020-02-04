@@ -3,19 +3,31 @@ import Header from './Header'
 import FolderList from './FolderList'
 import NoteList from './NoteList'
 import {STORE} from './dummy-store'
+import {Route} from 'react-router-dom'
 
 class App extends React.Component {
+  state = {
+    folderID: "",
+    noteID: ""
+  }
+
   render (){
     return (
       <div className='App'>
         <header>
-          <Header />
+          <Route path="/" component={Header} />
         </header>
-        <nav>
-          <FolderList store={STORE}/>
-        </nav>
+        <sidebar>
+          <Route 
+            path="/"
+            render={() => <FolderList store={STORE}/>}
+          />
+        </sidebar>
         <main>
-          <NoteList store={STORE}/>
+        <Route 
+            path="/"
+            render={() => <NoteList store={STORE}/>}
+          />
         </main>  
       </div>
     );

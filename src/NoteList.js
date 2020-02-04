@@ -1,7 +1,12 @@
 import React from 'react';
 
 export default function NoteList(props) {
-    const noteNames = props.store.notes.map(note => {
+    const filteredNotes = props.store.notes.filter(note => {
+        return note.folderId === "b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
+        }
+    )
+
+    const displayFilteredNotes = filteredNotes.map(note => {
         return (
             <li>
                 <h2>{note.name}</h2>
@@ -14,7 +19,7 @@ export default function NoteList(props) {
     return (
         <div>
             <ul>
-                {noteNames}
+                {displayFilteredNotes}
             </ul>
 
             <button>Add Note</button>
