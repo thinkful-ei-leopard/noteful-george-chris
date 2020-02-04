@@ -1,12 +1,14 @@
 import React from 'react';
 
-export default function NoteList() {
+export default function NoteList(props) {
+    const noteNames = props.store.notes.map(note => {
+        return <li>{note.name}</li>
+    })
+
     return (
         <div>
             <ul>
-                <li>Note 1</li>
-                <li>Note 2</li>
-                <li>Note 3</li>
+                {noteNames}
             </ul>
 
             <button>Add Note</button>
