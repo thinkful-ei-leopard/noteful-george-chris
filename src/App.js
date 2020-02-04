@@ -5,11 +5,6 @@ import NoteList from './NoteList'
 import {STORE} from './dummy-store'
 
 class App extends React.Component {
-  state = {
-    folder: {},
-    note: {}
-  }
-
   render (){
     return (
       <div className='App'>
